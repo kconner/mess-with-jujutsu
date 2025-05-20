@@ -80,3 +80,7 @@ A revset is a revision set. A revision is a commit. Revsets can be specified in 
 - `jj op log`: See a history of jj operations, which have IDs.
 
 - `jj op restore op-id`: Restore to the state after an operation.
+
+> We have rebased our commit successfully. But you may have noticed something surprising: @ is still at pzoqtwuv. This actually belies a very deep difference between jj and git that I learned from [Austin Seipp](https://github.com/thoughtpolice), one of jj's maintainers. And here it is:
+>
+> jj commands primarily operate on the data structures stored in its repository, rather than on the working copy.
