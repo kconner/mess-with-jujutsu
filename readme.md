@@ -40,3 +40,18 @@ I noticed that if you create a file and check jj st, then .gitignore it and chec
 `@` means the working copy. Not the same as git's HEAD.
 
 > why _should_ you have to create a commit message at the time of creating a commit, and not whenever you feel like it? The same stuff exists, but in more flexible pieces that I can combine together.
+
+- `jj squash` or `jj amend`: Add working copy changes into the parent change. It keeps the change ID but replaces the commit hash.
+
+Wow how do I keep reaching for the thing that comes next in the tutorial before it's introduced?
+
+- `jj squash -i`: TUI for squashing particular changes into the parent.
+
+In the interactive squash UI, space toggles selection and f unfolds a file to show individual changes. They are a tree. q quits, and confirming that aborts.
+
+- `jj abandon`: Throws out all changes in the working copy. A new empty change ID is created.
+
+Squashing defaults to moving changes from the working copy @ to its parent @-, but can be set go from any change to its parent with -r, or from any change to any other change with --from/-f and --into/-t, each of which default to @. So to edit a few changes ago you can just make the change and then jj squash -t thatchange. I bet you can just add -i if you need it piecewise.
+
+> jj squash is more powerful than git add because it can work on any change and its parent, moving stuff between them… Simpler, but more powerful, thanks to orthogonality.
+
