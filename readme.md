@@ -29,8 +29,14 @@ Describing the current commit doesn't affect its hash or change ID.
 
 Adding a file changes the commit hash. Removing it changes it again, but does not change it back to what it was. Neither of these working copy changes affected the change ID.
 
-- `jj new`: commits.
+- `jj new`: Begins a new blank change, leaving the last committed.
 
 After that, jj st now reports no changes, the working copy's description is blank, and the parent is the one we described a moment ago.
 
 I noticed that if you create a file and check jj st, then .gitignore it and check again, it won't be immediately omitted. If I do both changes before running jj st, it will be ignored.
+
+- `jj log`: git log
+
+`@` means the working copy. Not the same as git's HEAD.
+
+> why _should_ you have to create a commit message at the time of creating a commit, and not whenever you feel like it? The same stuff exists, but in more flexible pieces that I can combine together.
