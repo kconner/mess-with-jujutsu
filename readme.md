@@ -64,3 +64,9 @@ That makes sense with what I obseved about .gitignore and jj st before. The work
 - `jj edit foo`: Switches to make a paricular change the working copy. Child commits are automatically rebased as changes are first seen by jj, I think.
 
 - `jj next --edit`: Switches the working copy to the first child of the current working copy change. Like edit but you don't have to look up the change ID in the log.
+
+- `jj log -r 'heads(all())'`: Log only branch tip commits.
+
+A revset is a revision set. A revision is a commit. Revsets can be specified in an expression syntax. @ is a basic revset expression indicating the working copy. Change IDs and commit hashes are expressions. A trailing - is an operator taking the parent of its operand. Other operators do things like set intersection and finding all ancestors. And there are named functions too. trunk(), for example, looks for a traditionally named remote main branch and defaults to your own root commit.
+
+- `jj log -r '@ | ancestors(remote_bookmarks().., 2) | trunk()'`: Presents a handy overview of branches.
