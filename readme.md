@@ -70,3 +70,13 @@ That makes sense with what I obseved about .gitignore and jj st before. The work
 A revset is a revision set. A revision is a commit. Revsets can be specified in an expression syntax. @ is a basic revset expression indicating the working copy. Change IDs and commit hashes are expressions. A trailing - is an operator taking the parent of its operand. Other operators do things like set intersection and finding all ancestors. And there are named functions too. trunk(), for example, looks for a traditionally named remote main branch and defaults to your own root commit.
 
 - `jj log -r '@ | ancestors(remote_bookmarks().., 2) | trunk()'`: Presents a handy overview of branches.
+
+- `jj new rev-a rev-b`: Make a merge commit.
+
+> Just like we'd pass a parent revision to jj new, we can pass multiple parents, and it just works. No need for a special command.
+
+- `jj undo`: Undo the last jj operation. Nice! Undoing again will just undo the undo though, so:
+
+- `jj op log`: See a history of jj operations, which have IDs.
+
+- `jj op restore op-id`: Restore to the state after an operation.
