@@ -33,7 +33,7 @@ Adding a file changes the commit hash. Removing it changes it again, but does no
 
 After that, jj st now reports no changes, the working copy's description is blank, and the parent is the one we described a moment ago.
 
-I noticed that if you create a file and check jj st, then .gitignore it and check again, it won't be immediately omitted. If I do both changes before running jj st, it will be ignored.
+I noticed that if you create a file and check jj st, then .gitignore it and check again, it won't be immediately omitted. If I do both changes before running jj st, it will be ignored. So there are tracking changes written when you do some ostensibly read-only commands.
 
 - `jj log`: git log
 
@@ -55,3 +55,8 @@ Squashing defaults to moving changes from the working copy @ to its parent @-, b
 
 > jj squash is more powerful than git add because it can work on any change and its parent, moving stuff between them… Simpler, but more powerful, thanks to orthogonality.
 
+- `jj new -B @`: Makes a new commit before, not after, the current working copy.
+
+At this point, the log shows the current working copy as being in the middle. The child change is still there but is rebased if I change this one. The child change ID also remains the same.
+
+That makes sense with what I obseved about .gitignore and jj st before. The working copy can change freely, so its commit hash isn't decided until the next time jj actually runs and looks at it. At that point it would affect any child commits too.
