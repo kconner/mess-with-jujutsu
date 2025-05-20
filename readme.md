@@ -60,3 +60,7 @@ Squashing defaults to moving changes from the working copy @ to its parent @-, b
 At this point, the log shows the current working copy as being in the middle. The child change is still there but is rebased if I change this one. The child change ID also remains the same.
 
 That makes sense with what I obseved about .gitignore and jj st before. The working copy can change freely, so its commit hash isn't decided until the next time jj actually runs and looks at it. At that point it would affect any child commits too.
+
+- `jj edit foo`: Switches to make a paricular change the working copy. Child commits are automatically rebased as changes are first seen by jj, I think.
+
+- `jj next --edit`: Switches the working copy to the first child of the current working copy change. Like edit but you don't have to look up the change ID in the log.
