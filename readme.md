@@ -86,3 +86,12 @@ A revset is a revision set. A revision is a commit. Revsets can be specified in 
 > jj commands primarily operate on the data structures stored in its repository, rather than on the working copy.
 
 - `jj edit @+`: Edit the child of the working copy, same as `jj next --edit` I think.
+
+- `jj bookmark create -r @- main`: Make a local main branch pointed at the parent change.
+
+- `jj log -r 'ancestors(main, 2)'`: See the last two commits on the main branch.
+
+- `jj bookmark set -r @ main`: Point the main branch at the working copy
+
+Generally you'd update the branch bookmark before you push. New local commits can stay flexible in the meantime.
+
