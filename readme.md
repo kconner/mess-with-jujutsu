@@ -95,7 +95,7 @@ A revset is a revision set. A revision is a commit. Revsets can be specified in 
 
 Generally you'd update the branch bookmark before you push. New local commits can stay flexible in the meantime.
 
-- `jj git remote …`: Work with git remotes, like `git remote …`
+- `jj git remote …`: Work with git remotes, like `git remote …`.
 
 I'm not sure if it takes the exact same arguments but git remote add was the same.
 
