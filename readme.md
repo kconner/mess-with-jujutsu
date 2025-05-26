@@ -100,3 +100,13 @@ Generally you'd update the branch bookmark before you push. New local commits ca
 I'm not sure if it takes the exact same arguments but git remote add was the same.
 
 - `jj git push --allow-new`: Push bookmarks as git branches, and permit creating new branches on the remote.
+
+When I had a bookmark set on my working copy and I pushed that, jj automatically created a new working copy change because the existing one had become immutable. It seems after a commit is pushed, it is treated as immutable and gets a blue diamond bullet in `jj log`.
+
+- `jj git fetch`: `git fetch`, but it moves our bookmarks.
+
+I suppose that means bookmarks are implicitly like remote tracking branches.
+
+First you fetch, then you can make a merge commit with, or rebase, your local changes. That's how I used git already.
+
+It looks like `jj log` helpfully prunes history commits in common with remotes.
