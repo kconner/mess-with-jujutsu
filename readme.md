@@ -115,3 +115,8 @@ When I pushed this way, the commits didn't turn immutable. After editing them, p
 
 Sections 5.4 and 5.5 aren't written yet.
 
+Rebasing a change with a list of multiple parents is interesting. It rewrites it on top of all of them. Section 6.1 shows this as a way to slot a change in behind an existing merge commit: You rebase the merge and just pick a new set of parents.
+
+- `jj rebase -s 'all:roots(main..@)' -d main`: Rebase onto main all the first main-history-diverging commits in the history of the working copy.
+
+My rebase against upstream changes didn't look the same, I think because my PR used a merge commit and not a squash as in the tutorial. I was able to clean up an extra parent pointer, from my local merge commit to the now-merged working branch tip, by rebasing the local merge commit and simply omitting that parent. So I've learned something either way. :)
