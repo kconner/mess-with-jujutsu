@@ -112,3 +112,6 @@ It looks like `jj log` helpfully prunes history commits in common with remotes.
 - `jj git push -c @`: Push the working copy as a new branch named after its change ID
 
 When I pushed this way, the commits didn't turn immutable. After editing them, pushing again produced a force push.
+
+Sections 5.4 and 5.5 aren't written yet.
+
